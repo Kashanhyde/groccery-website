@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop N</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="logo-container"></div>
+
+
+
+
+    <!-- Navbar -->
+    <!-- Desktop Menu HTML -->
+    <nav class="navbar">
+        <div class="logo">Shop<span> <span id="span1">N</span> Joy</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search products..." id="search">
+            <button type="button" id="search-btn">🔍</button>
+        </div>
+        <button class="signup-btn">Sign Up</button>
+        <button class="login-btn">Login</button>
+
+        <!--add to cart-->
+        <div class="cart-container">
+            <button class="cart-button">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-text">Add to Cart</span>
+            </button>
+        </div>
+
+    </nav>
+
+    <div class="navbar">
+        <!-- Hamburger Menu for Mobile -->
+        <div class="hamburger-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Grocery Deliver Service</span>
+            <h1>Make healthy life with <span class="highlight">fresh</span> grocery</h1>
+            <p>Get the best quality and most delicious grocery food in the world, you can get them all using our
+                website.</p>
+            <button class="shop-btn">Shop Now</button>
+            <div class="app-buttons">
+                <img src="app-store-png-logo-33115.png" alt="Google Play" id="image11">
+
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="10929810.png" alt="Fresh Groceries" class="food-img" id="image2">
+        </div>
+    </section>
+
+    
+    <!-- CSS & JS -->
+    <script>
+        document.querySelector('.shop-btn').addEventListener('mouseover', () => {
+            document.querySelector('.shop-btn').style.transform = 'scale(1.1)';
+        });
+        document.querySelector('.shop-btn').addEventListener('mouseout', () => {
+            document.querySelector('.shop-btn').style.transform = 'scale(1.0)';
+        });
+
+        // JavaScript for Hamburger Toggle
+
+
+        //java script search bar settings//
+
+        document.getElementById('search-btn').addEventListener('click', () => {
+            const query = document.getElementById('search').value.trim();
+            if (query) {
+                window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
+            }
+        });
+
+
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+        hamburgerMenu.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+    </script>
+</body>
+
+</html>
+
+<!-- styles.css -->
+<style>
+    .logo-container {
+        background-image: url(Capture.PNG);
+    }
+
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    body {
+        background-color: #fff;
+    }
+
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 10%;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 10;
+    }
+
+    .navbar .logo {
+        font-size: 2.2em;
+        font-weight: bold;
+        color: #ff6600;
+        white-space: nowrap;
+    }
+
+    .navbar .logo span {
+        color: #ff6600;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: flex-end;
+        /* Align links to the right */
+        align-items: center;
+        gap: 40px;
+        /* Adjust spacing between links */
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #000000;
+        width: 30%;
+        /* Adjust width to position links */
+        margin-left: 150px;
+        /* Center the entire navbar */
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        padding: 5px 10px;
+        transition: color 0.3s, background-color 0.3s;
+        border-radius: 5px;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+        color: #ff6600;
+        background-color: rgba(255, 102, 0, 0.1);
+    }
+
+    /*add to cart css*/
+    .cart-container {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        /* Align with the search bar */
+        padding-left: 20px;
+        /* Add spacing to the left of cart */
+    }
+
+    .cart-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eb7d00;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-button:hover {
+        background-color: #d36a00;
+        /* Slightly darker for hover effect */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .cart-icon {
+        font-size: 1.2rem;
+        margin-right: 5px;
+        /* Adjusted spacing */
+    }
+
+    .cart-text {
+        font-size: 1rem;
+    }
+
+
+    /* Hamburger Menu */
+    .hamburger-menu {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburger-menu .bar {
+        width: 25px;
+        height: 3px;
+        background: #333;
+        transition: 0.3s;
+    }
+
+    /* Mobile Styles (Responsive) */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 15px 5%;
+        }
+
+        .nav-links {
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .cart-container {
+            margin-left: 0;
+            /* Align with the rest of the items */
+            width: 100%;
+            /* Make it span full width */
+            justify-content: flex-start;
+            padding: 10px 0;
+        }
+
+        .cart-button {
+            width: 100%;
+            /* Make the button full width for mobile */
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .cart-container {
+            margin-right: 20px;
+            /* Align with desktop styles */
+            justify-content: flex-end;
+        }
+    }
+
+
+    /* Hamburger Menu Active State */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+
+
+    /* Common Button Styles */
+    .signup-btn,
+    .login-btn {
+        background: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    /* Button Hover Effect */
+    .signup-btn,
+    .login-btn {
+        background: #333;
+        color: #fff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin-left: 15px;
+        transition: background 0.3s ease;
+        width: 115px;
+    }
+
+
+    .signup-btn:hover,
+    .login-btn:hover {
+        background: #ff6600;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+
+        .signup-btn,
+        .login-btn {
+            width: 80%;
+            /* Adjust width for mobile */
+            align-items: right;
+            margin-right: 0;
+            /* Remove margin on mobile */
+            margin-bottom: 10px;
+            /* Space between buttons vertically */
+        }
+
+        .signup-btn {
+            margin-bottom: 10px;
+            /* Space between buttons vertically */
+        }
+
+        .login-btn {
+            margin-bottom: 0;
+            /* Remove margin from the second button */
+        }
+    }
+
+
+
+    /* Hero Section */
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 50px 10%;
+        background: linear-gradient(to right, #fff, #fffbf7);
+    }
+
+    .hero-content {
+        max-width: 50%;
+    }
+
+    .badge {
+        background: #ffcccb;
+        color: #333;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.9em;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em;
+        margin: 20px 0;
+    }
+
+    .hero-content .highlight {
+        color: #ff6600;
+    }
+
+    .hero-content p {
+        margin-bottom: 30px;
+        color: #666;
+    }
+
+    .shop-btn {
+        background: #ff5e00;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        font-size: large;
+    }
+
+    .hero-image {
+        padding: 10px;
+        margin-right: 400px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .food-img {
+        animation: floating 3s ease-in-out infinite;
+    }
+
+
+    /* Image Styling */
+    #image11 {
+        cursor: pointer;
+        width: 400px;
+        height: 60px;
+        margin-top: 40px;
+        margin-right: 200px;
+    }
+
+    #image2 {
+        margin-left: 250px;
+        width: 700px;
+        height: 50;
+    }
+
+    /* Responsive Design */
+
+    /* Mobile (max-width: 768px) */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-wrap: wrap;
+            padding: 15px 5%;
+            text-align: center;
+        }
+
+        .nav-links {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .signup-btn {
+            margin-top: 10px;
+        }
+
+        .hero {
+            flex-direction: column;
+            text-align: center;
+            padding: 20px 5%;
+        }
+
+        .hero-content {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2em;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        .shop-btn {
+            font-size: medium;
+            padding: 10px 15px;
+        }
+
+        .hero-image {
+            margin: 20px auto;
+        }
+
+        .food-img {
+            width: 90%;
+            height: auto;
+        }
+
+        #image11 {
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+            margin-right: 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #image2 {
+            width: 90%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px 5%;
+        }
+
+        .feature {
+            text-align: center;
+        }
+    }
+
+    /* Tablets (769px to 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .hero {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 5%;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5em;
+        }
+
+        .hero-content p {
+            font-size: 1em;
+        }
+
+        .shop-btn {
+            font-size: large;
+            padding: 10px 20px;
+
+        }
+
+        .hero-image {
+            margin: 20px auto;
+        }
+
+        .food-img {
+            width: 70%;
+            height: auto;
+        }
+
+        #image11 {
+            width: 350px;
+            height: auto;
+            margin-top: 30px;
+            margin-right: 50px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #image2 {
+            width: 80%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .feature {
+            flex-basis: 45%;
+            text-align: center;
+        }
+    }
+
+    /* Desktop (1025px and above) */
+    @media (min-width: 1025px) {
+        /* No major changes for desktop */
+
+
+    }
+
+    @keyframes floating {
+        0% {
+            transform: translateY(0);
+            /* Start position */
+        }
+
+        50% {
+            transform: translateY(-10px);
+            /* Move up */
+        }
+
+        100% {
+            transform: translateY(0);
+            /* Back to start */
+        }
+    }
+
+    .food-img {
+        animation: floating 3s ease-in-out infinite;
+        /* Animation name, duration, and repeat */
+    }
+
+    /* Search Bar Styles */
+    .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    .search-bar input {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        outline: none;
+        font-size: 1em;
+        width: 190px;
+        transition: width 0.4s, border-color 0.3s;
+    }
+
+    .search-bar input:focus {
+        width: 220px;
+        border-color: #ff6600;
+    }
+
+    .search-bar button {
+        padding: 8px 12px;
+        background-color: #f58823;
+        border: none;
+        border-radius: 20px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background 0.3s;
+    }
+
+    .search-bar button:hover {
+        background-color: #e55d00;
+    }
+</style>
+<script>
+    // Fetch Products from API
+    async function fetchProducts() {
+        try {
+            // Replace this URL with your actual grocery store API endpoint
+            const response = await fetch('https://fakestoreapi.com/products');
+            const products = await response.json();
+            displayProducts(products);
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
+    }
+
+    // Display Products in Grid
+    function displayProducts(products) {
+        const productGrid = document.querySelector('.product-grid');
+        productGrid.innerHTML = ''; // Clear existing content
+
+        products.forEach((product) => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+
+            productCard.innerHTML = `
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.title}">
+            </div>
+            <h3 class="product-title">${product.title}</h3>
+            <p class="product-price">$${product.price}</p>
+        `;
+
+            productGrid.appendChild(productCard);
+        });
+    }
+
+    // Load Products on Page Load
+    fetchProducts();
+</script>
